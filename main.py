@@ -12,7 +12,7 @@ class App(tk.Tk):
         self.title('DOBOT instruction calculeter')
         self.geometry('700x500')
 
-        notebook = ttk.Notebook(self)
+        notebook = ttk.Notebook(self, width=700, height=450)
         notebook.pack(pady=10, expand=True)
 
         DS_frame = ds.DobotStudio(self)
