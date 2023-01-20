@@ -1,5 +1,4 @@
 import xml.etree.ElementTree as ET
-import csv
 
 def import_playback(filename):
     # Open the dobot playback file and parse the XML

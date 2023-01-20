@@ -2,6 +2,7 @@ import tkinter as tk
 from tksheet import Sheet
 from tkinter import filedialog as fd
 from tkinter.constants import *
+from constants import types
 
 from file_import import import_playback
 
@@ -12,6 +13,8 @@ class DobotStudio(tk.Frame):
 
         import_btn = tk.Button(self, text="Import file",
                                command=self.import_file). grid()
+        new_btn = tk.Button(self, text="New file",
+                               command=self.new_file). grid()
 
         self.table_frame = SheetFrame(self)
         self.table_frame.grid()
@@ -25,9 +28,14 @@ class DobotStudio(tk.Frame):
         filename = fd.askopenfilename(
             title='Open a file',
             filetypes=filetypes)
+        
 
         data = import_playback(filename)
 
+        self.table_frame.insert_data(data)
+
+    def new_file(self):
+        data = [[0, "", "", "", "", ""]]
         self.table_frame.insert_data(data)
 
 
@@ -53,7 +61,7 @@ class SheetFrame(tk.Frame):
         data_no_type=[]
         type_data=[]
         for row in data:
-            data_no_type.append([row[1], None, round_int(row[2]), round_int(row[3]),round_int(row[4]),round_int(row[5])])
+            data_no_type.append([row[1], None, row[2], row[3],row[4],row[5]])
             type_data.append(row[0])
 
         self.sheet = Sheet(self.frame, data=data_no_type, width=600)
@@ -82,7 +90,6 @@ class SheetFrame(tk.Frame):
         self.show()
 
         
-types = ["MOVL", "MOVJ", "ERC"]
         
 def round_int(decimal_string):
     return int(round(float(decimal_string)))
