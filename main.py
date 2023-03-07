@@ -22,9 +22,11 @@ class App(tk.Tk):
 
         self.DS_frame.pack(fill='both', expand=True)
         self.RT_frame.pack(fill='both', expand=True)
+        self.MP_frame.pack(fill='both', expand=True)
 
         notebook.add(self.DS_frame, text='DobotStudio')
         notebook.add(self.RT_frame, text='RealTerm')
+        notebook.add(self.MP_frame, text='MPlab')
         notebook.bind('<<NotebookTabChanged>>', self.on_tab_change)
 
     def on_tab_change(self, event):

@@ -19,6 +19,7 @@ class DobotStudio(tk.Frame):
         self.table_frame = SheetFrame(self)
         self.table_frame.grid()
 
+
     def import_file(self):
         filetypes = (
             ('DOBOT studio files', '*.playback'),
@@ -58,18 +59,21 @@ class SheetFrame(tk.Frame):
 
     def insert_data(self, data):
 
+        # orgenize data to usefull format
         data_no_type=[]
         type_data=[]
         for row in data:
             data_no_type.append([row[1], None, row[2], row[3],row[4],row[5]])
             type_data.append(row[0])
-
+        
+        # Create sheet with data exept types
         self.sheet = Sheet(self.frame, data=data_no_type, width=600)
         self.sheet.enable_bindings()
 
+        # Add headers
         self.sheet.headers(newheaders = ["Name", "Type", "x", "y", "z", "r"], index = None, reset_col_positions = False, show_headers_if_not_sheet = True, redraw = False)
 
-
+        # insert types
         for i, cell in enumerate(type_data):
             self.sheet.create_dropdown(r=i,
                             c=1,
@@ -80,6 +84,7 @@ class SheetFrame(tk.Frame):
                             selection_function=None,
                             modified_function=None)
 
+        # collum width
         self.sheet.column_width(column =0, width = 150, only_set_if_too_small = False, redraw = True)
         self.sheet.column_width(column =1, width = 70, only_set_if_too_small = False, redraw = True)
         self.sheet.column_width(column =2, width = 50, only_set_if_too_small = False, redraw = True)

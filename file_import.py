@@ -15,8 +15,14 @@ def import_playback(filename):
         for item in row:
             row_data.append(item.text)
         data.append(row_data)
+        if row_data[-1] == '0':
+            data.append([ "5", "Suck off", "", "", "", "", "", ""])
+        elif row_data[-1] == '1':
+            data.append([ "4", "Suck on", "", "", "", "", "", ""])
 
-    # Delete the last two columns and the first row
+    #print(data)
+    
+    # Delete the last two columns and the first two rows
     data = [row[:-2] for row in data[2:]]
 
     return data

@@ -1,8 +1,18 @@
 from float_to_hex import IEEE754
 import constants
 
+def convert(data):
+    print("convert func:",data)
+    if data[0] == "suck on":
+        return constants.suck_on_rt
+    elif data[0] == "suck off":
+        return constants.suck_off_rt
+    else:
+        return convert_movement(data)
 
-def real_time_inst(data):
+
+
+def convert_movement(data):
     type = type_func(data[0])
     ctrl = ctrl_func(data[0])
     id = id_func(data[0])
