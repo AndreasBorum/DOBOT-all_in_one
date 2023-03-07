@@ -3,6 +3,7 @@ from tkinter import ttk
 
 import dobot_studio as ds
 import realterm as rt
+import mplab as mp
 
 
 class App(tk.Tk):
@@ -17,6 +18,7 @@ class App(tk.Tk):
 
         self.DS_frame = ds.DobotStudio(self)
         self.RT_frame = rt.RealTerm(self)
+        self.MP_frame = mp.MPLap(self)
 
         self.DS_frame.pack(fill='both', expand=True)
         self.RT_frame.pack(fill='both', expand=True)
