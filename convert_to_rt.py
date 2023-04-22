@@ -2,7 +2,7 @@ from float_to_hex import IEEE754
 import constants
 
 def convert(data):
-    print("convert func:",data)
+    #print("convert func:",data)
     if data[0] == "suck on":
         return constants.suck_on_rt
     elif data[0] == "suck off":

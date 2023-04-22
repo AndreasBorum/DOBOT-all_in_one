@@ -35,7 +35,8 @@ class App(tk.Tk):
             pass
         elif tab == 'RealTerm':
             self.RT_frame.update_lables()
-
+        elif tab == 'MPlab':
+            self.MP_frame.update_lables()
 
 if __name__ == '__main__':
     app = App()

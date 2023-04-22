@@ -19,7 +19,7 @@ class RealTerm(tk.Frame):
         realterm_daata = []
         for i, row in enumerate(data):
             instrunction = convert(row[1:])
-            print(instrunction)
+            #print(instrunction)
             realterm_daata.append([row[0], instrunction])
             
         self.sheet_frame.set_sheet_data(data = realterm_daata, redraw= False)
